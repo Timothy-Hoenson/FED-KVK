@@ -9,14 +9,49 @@
 
 
 
+/*********************/
+/* FONTS */
+/*********************/
+
+@font-face {
+    font-family: 'Ciutadella Rounded';
+    src: url('../fonts/ciutadella-rounded-semi.eot');
+    src: url('../fonts/ciutadella-rounded-semi.eot') format('embedded-opentype'),
+        url('../fonts/ciutadella-rounded-semi.woff2') format('woff2'),
+        url('../fonts/ciutadella-rounded-semi.woff') format('woff'),
+        url('../fonts/ciutadella-rounded-semi.ttf') format('truetype'),
+        url('../fonts/ciutadella-rounded-semi.svg') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
+
 :root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+	/* Colours */
+	--clr-text:#343434;
+	--clr-footer-background: #efefef;
+	--clr-background:#ffffff;
+	--clr-background-sec:#e6f2f5;
+	--clr-kvk-blue:#005268;
+	--clr-kvk-pink:#aa418c;
+	--clr-kvk-orange: #ff9300;
+	--clr-link-text: #0070b9;
+
+	/* borders / Lines Colours */
+	--clr-border-light:#bebebe;
+
+	/* Drop Shadows */
+	--drop-shadow-light: 0 4px 6px 0 hsla(0, 0%, 75%, .33), 0 1px 3px 0 hsla(0, 0%, 75%, .33);
+
+	/* Border Radius */
+	--border-radius: 4px;
 }
 
 
@@ -29,3 +64,316 @@
 
 /* jouw code */
 
+body {
+	margin:0;
+	padding:0;
+	font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ciutadella Rounded', sans-serif;
+  font-weight: 600;
+  color: var(--clr-kvk-blue);
+}
+
+h2 {
+  font-size: 1.75rem;
+  padding-bottom: 1rem;
+}
+
+
+/* Div Gradient */
+body > div:first-of-type {
+  height: .5rem;
+  width: 100%;
+  background: linear-gradient(to right, var(--clr-kvk-pink), var(--clr-kvk-orange));
+}
+
+/****************/
+/* HEADER */
+/****************/
+
+header {
+	padding: 1.75rem 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* Logo img */
+header a:nth-of-type(1) img {
+	height: 1.5rem;
+	width: auto;
+	display: block;
+}
+
+/* Menu Text + burger icon */
+header a:nth-of-type(2) {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	color: var(--clr-text);
+	text-decoration: none;
+
+}
+
+header a:nth-of-type(2) img {
+	width: 1rem;
+	height: auto;
+	display: block;
+}
+
+header a:nth-of-type(2):hover {
+  color: var(--clr-kvk-blue);   /* or replace with a hex color */
+}
+
+
+
+
+
+/****************/
+/* Hero Section */
+/****************/
+
+section:first-of-type {
+	background-color: var(--clr-background-sec);
+}
+
+section div:first-child {
+	background-image: url('../images/beeld_hero_houvast.jpg');
+	background-repeat: no-repeat;
+    width: 100vw;
+    height: 200px;
+    background-size: cover;
+}
+
+section:nth-child(2) {
+	background-color: var(--clr-background);
+	padding: 1rem;
+	margin: 1rem;
+	border-radius: var(--border-radius);
+}
+
+section:nth-child(2) h1 {
+	font-family: 'Ciutadella Rounded', sans-serif;
+	font-weight: 600;
+	font-size: 1.625rem;
+	color: var(--clr-kvk-blue);
+}
+
+section:nth-child(2) p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1.125rem;
+	color: var(--clr-text);
+	margin-top: 1rem;
+	line-height: 1.5;
+}
+
+section > a {
+	background-color: var(--clr-kvk-pink);
+    color: #fff;
+	border: 1px solid var(--clr-kvk-pink);
+	border-radius: var(--border-radius);
+    box-shadow: var(--drop-shadow-light);
+    display: inline-block;
+    font-family: Roboto;
+    font-size: 1.125rem;
+    font-weight: 400;
+    padding: .75rem 1.5rem;
+	margin-top: 1rem;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+
+
+
+
+/**********************/
+/* UL HERO (OP BLAUW) */
+/**********************/
+
+
+
+/* UL: lijst zonder bullets */
+ul {
+  list-style: none;
+  padding: 0.5rem;  
+}
+
+/* LI: flex container (img links — tekst rechts) */
+ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;                  /* ruimte tussen foto en tekst */
+  padding: 0.5rem;
+	border-radius: var(--border-radius);
+}
+
+/* Afbeelding kleiner maken */
+ul li > img {
+  width: 7rem;              /* kies jouw maat */
+  height: 5rem;
+  object-fit: cover;         /* vult vanuit het midden */
+  object-position: center;
+	border-radius: var(--border-radius);
+  display: block;
+}
+
+/* Tekstblok */
+ul li > div p {
+  font-family: 'Ciutadella Rounded', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--clr-text);
+}
+
+ul li > div a {
+  margin: 0;
+  font-family: 'Ciutadella Rounded', sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--clr-kvk-blue);
+}
+
+
+
+
+/****************************/
+/* SECTION WAT WIL JE DOEN? */
+/****************************/
+
+section:nth-of-type(2) {
+	margin-top: 3rem;
+	padding-left: 1rem;
+}
+
+/* GRID ICON CARDS — compactere cards */
+section:nth-of-type(2) > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* kleiner */
+  gap: 0.75rem;                 /* iets minder ruimte tussen kaarten */
+  padding: 0;
+  margin: 1rem 0;
+  list-style: none;
+}
+
+/* SQUARE CARDS — kleiner door lagere minmax + minder padding */
+section:nth-of-type(2) > ul > li {
+  aspect-ratio: 1 / 1; 
+  background-color: var(--clr-background);
+  border: 1px solid var(--clr-border-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--drop-shadow-light);
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;               /* was 1rem → veel compacter */
+
+  transition: border-color .2s, box-shadow .2s;
+}
+
+/* CONTENT — icon + tekst spacing compacter */
+section:nth-of-type(2) > ul > li > a {
+  text-decoration: none;
+  color: var(--clr-text);
+  font-family: 'Ciutadella Rounded', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;                   /* was .5rem → iets smaller */
+}
+
+/* ICONS — houden zoals jij had (3rem) */
+section:nth-of-type(2) > ul > li img {
+  height: 3rem;
+  width: auto;
+}
+
+/* HOVER (ongewijzigd, past nog steeds mooi) */
+section:nth-of-type(2) > ul > li:hover {
+  border-color: var(--clr-kvk-blue);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+section:nth-of-type(2) > ul > li:hover > a {
+  color: var(--clr-kvk-blue);
+}
+
+
+
+
+
+/*****************************************/
+/* SECTION WAAR KUNNEN WE JE BIJ HELPEN? */
+/*****************************************/
+
+section:nth-of-type(3) {
+	margin-top: 3rem;
+	padding: 1rem;
+}
+
+/* KVK-LIJST MET CHEVRON */
+section:nth-of-type(3) > ul {
+	list-style: none;
+	padding: 0;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+/* Witte kaart */
+section:nth-of-type(3) > ul > li {
+	background: var(--clr-background);
+	border: 1px solid var(--clr-border-light);
+	border-radius: var(--border-radius);
+	box-shadow: var(--drop-shadow-light);
+}
+
+/* Tekst links – chevron rechts */
+section:nth-of-type(3) > ul > li > a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100vw;              /* ensure anchor spans the full card */
+	padding: 0.75rem;
+	text-decoration: none;
+
+	font-family: 'Ciutadella Rounded', sans-serif;
+	font-weight: 600;
+	font-size: 1.125rem;
+	color: var(--clr-text);
+}
+
+/* place the image on the right */
+section:nth-of-type(3) > ul > li > a > img {
+	width: 1.5rem;
+	height: auto;
+	order: 0; /* ensure image stays after the text */
+}
+
+/* Hover */
+section:nth-of-type(3) > ul > li:hover {
+	border-color: var(--clr-kvk-pink);
+	cursor: pointer;
+}
+
+section:nth-of-type(3) > ul > li:hover > a {
+	color: var(--clr-kvk-pink);
+}
