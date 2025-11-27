@@ -56,7 +56,9 @@
 
 
 
-
+div.space {
+  height: 10rem;
+}
 
 /****************/
 /* JOUW STYLING */
@@ -376,4 +378,14 @@ section:nth-of-type(3) > ul > li:hover {
 
 section:nth-of-type(3) > ul > li:hover > a {
 	color: var(--clr-kvk-pink);
+}
+
+
+/*****************************************/
+/* SECTION WAAR KUNNEN WE JE BIJ HELPEN? */
+/*****************************************/
+
+section:nth-of-type(4) {
+	margin-top: 3rem;
+	padding: 1rem;
 }
